@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Arkanoid-like-web-game.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>
