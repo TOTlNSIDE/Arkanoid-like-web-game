@@ -1,0 +1,19 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    background: content-box radial-gradient(crimson, skyblue);
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game canvas {
+    display: block;
+    border: 2px dashed #0b5394;
+    border-radius: 6px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
