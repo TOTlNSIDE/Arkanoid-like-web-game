@@ -5,6 +5,7 @@ ArkGame.Config = {
     FieldLeft: 50, FieldRight: 450, FieldTop: 50,
     BrickWidth: 50, BrickHeight: 20,
     PlatformWidth: 100, PlatformHeight: 20, PlatformY: 450, PlatformSpeed: 100,
+    BallRadius: 6, BallSpeed: 300, BallMaxSPD: 500,
     Lives: 3,
     BrickColors: {
         R: 0xff0000, O: 0xffbf00, Y: 0xffff00, G: 0x008000, B: 0x0000ff,
