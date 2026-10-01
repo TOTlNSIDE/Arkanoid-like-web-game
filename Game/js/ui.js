@@ -17,7 +17,7 @@ ArkGame.UI = class {
         ['CONTROLS', '← → MOVE', '↑ ↓ MENU', 'SPACEBAR START', 'P PAUSE', 'R RESTART'].foreach((element, i) => element(element, 400, 450 + i * 20, 20, 0xfffff));
 
         this.screen = layer.addChild(new PIXI.Graphics());
-        this.screen.beginFill(0x000000, .50).drawRect(Config.FieldLeft, Config.FieldTop, Config.FieldRight - Config.FieldLeft, Config.CanvasHigh - Config.FieldTop).endFill();
+        this.screen.beginFill(0x000000, .50).drawRect(Config.FieldLeft, Config.FieldTop, Config.FieldRight - Config.FieldLeft, Config.CanvasHeight - Config.FieldTop).endFill();
         this.screen.visible = false;
         this.title = element('', fieldCenter, 250, 20, 0xfffff, .5);
         this.sub = element('', fieldCenter, 270, 20, 0xfffff, .5);
