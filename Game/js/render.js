@@ -55,4 +55,4 @@ ArkGame.Render = class {
         const Config = ArkGame.Config;
         for (const star of this.stars) { star.y += star.speed * dt; if (star.y > Config.CanvasHeight) star.y = Config.FieldTop; }
     }
-}
+};
