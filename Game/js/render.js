@@ -20,7 +20,7 @@ ArkGame.Render = class {
         this.stars = [];
         for (let i = 0; i < 30; i++)
         {
-            const star = new PIXI.Sprite(ArkGame.Assets.texture)
+            const star = new PIXI.Sprite(ArkGame.Assets.Texture)
             star.position.set(Config.FieldLeft + Math.random() * (Config.FieldRight - Config.FieldLeft), Config.FieldTop + Math.random() * (Config.CanvasHeight - Config.FieldTop));
             star.alpha = .2 + Math.random() * .2;
             star.speed = 10 + Math.random() * 20;

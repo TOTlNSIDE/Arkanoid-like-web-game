@@ -6,12 +6,12 @@ ArkGame.Effects = class {
     }
 
     spawn(x, y, color, life) {
-        const sprite = new PIXI.Sprite(ArkGame.Assets.texture.star);
+        const sprite = new PIXI.Sprite(ArkGame.Assets.Texture.star);
         sprite.anchor.set(.5); sprite.tint = color; sprite.position.set(x, y);
         this.layer.addChild(sprite);
         const particle = { sprite, life, max: life, Vx: 0, Vy: 0, gravity: 0, scale: 1 };
         this.particles.push(particle);
-        return particles;
+        return particle;
     }
 
     burst(x, y, color, count) {

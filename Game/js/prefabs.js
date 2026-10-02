@@ -1,5 +1,5 @@
 (function () {
-    const Config = ArkGame.Config, Textures = () => ArkGame.Assets.texture;
+    const Config = ArkGame.Config, Texture = () => ArkGame.Assets.Texture;
 
     ArkGame.Platform = class {
         constructor(layer) {
@@ -8,8 +8,9 @@
             this.x = (Config.FieldLeft + Config.FieldRight) / 2;
             this.y = Config.PlatformY;
             this.moved = false;
-            this.sprite = new PIXI.Sprite(Textures().platform);
+            this.sprite = new PIXI.Sprite(Texture().platform);
             this.sprite.anchor.set(.5);
+            layer.addChild(this.sprite);
         }
         reset() { this.x = (Config.FieldLeft + Config.FieldRight) / 2; this.sprite.visible = true; this.sprite.scale.set(.1, 1); }
         rect() { return { x: this.x - thix.width / 2, y: this.y - this.height / 2, width: this.width, height: this.height }; }
@@ -17,9 +18,9 @@
         update(dt, input) {
             const press = (input.down('ArrowRight') ? 1 : 0) - (input.down('ArrowLeft') ? 1 : 0);
             if (press) this.moved = true;
-            this.x = Math.max(Config.FieldLeft + this.width / 2, Math.min(Config.FieldRight - this.width / 2, this.x + d * Config.PlatformSpeed * dt));
+            this.x = Math.max(Config.FieldLeft + this.width / 2, Math.min(Config.FieldRight - this.width / 2, this.x + press * Config.PlatformSpeed * dt));
             const coeff = Math.min(1, dt * 14), scale = this.sprite.scale;
-            s.set(scale.x + (1 - scale.x) * coeff, scale.y + (1 - scale.y) * coeff);
+            scale.set(scale.x + (1 - scale.x) * coeff, scale.y + (1 - scale.y) * coeff);
             this.sprite.position.set(this.x, this.y);
         }
     };
@@ -32,7 +33,7 @@
             this.Vy = 0;
             this.speed = Config.BallSpeed;
             this.stuck = true;
-            this.sprite = new PIXI.Sprite(Textures().ball);
+            this.sprite = new PIXI.Sprite(Texture().ball);
             this.sprite.anchor.set(.5);
             layer.addChild(this.sprite);
         }
@@ -60,7 +61,7 @@
             this.delay = row * .06 + col * .015;
             this.flash = 0;
             this.dead = false;
-            this.sprite = new PIXI.Sprite(Textures()['brick' + kind]);
+            this.sprite = new PIXI.Sprite(Texture()['brick' + kind]);
             this.sprite.anchor.set(.5);
             this.sprite.position.set(this.centerX, this.centerY);
             this.sprite.alpha = 0;

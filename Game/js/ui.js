@@ -31,9 +31,39 @@ ArkGame.UI = class {
     setScore(value) { this.score.text = String(value); }
     SetHighScore(value) { this.high.text = String(value); }
     setRound(value) { this.round.text = String(value); }
+    setLives(value) {
+        this.lives.removeChildren().forEach(child => child.destroy());
+        for (let i = 0; i < value; i++) {
+            const platform = new PIXI.Sprite(ArkGame.Assets.Texture.platform);
+            platform.scale.set(.5); platform.x = i * 42;
+            this.lives.addChild(platform);
+        }
+    }
+    setHint(text) { if (this.hint.text !== text) this.hint.text = text; }
 
+    show(title, subtext = '', options = {}) {
+        this.title.text = title;
+        this.title.style.fontSize = options.size || 22;
+        this.subtext.text = subtext;
+        this.title.visible = this.subtext.visible = true;
+        this.dim.visible = options.dim !== false;
+    }
+    hide() { this.title.visible = this.subtext.visible = this.dim.visible = false; }
 
+    showMenu(labels, index) {
+        labels.forEach((label, i) => {
+            if (!this.items[i]) this.items[i] = this.element('', this.fieldCenter, 340 + i * 40, 14, 0xffffff, .5);
+            const item = this.items[i];
+            item.text = (i === index ? '> ' : '  ') + label + (i === index ? ' <' : '  ');
+            item.style.fill = i === index ? 0xffe14d : 0x9aa6cc;
+            item.visible = true;
+        });
+    }
+    hideMenu() { this.items.forEach(item => (item.visible = false)); }
 
-
-
-}
+    update(dt) {
+        this.time += dt;
+        this.subtext.alpha = .65 + .35 * Math.sin(this.time * 6);
+        this.title.scale.set(1 + .02 * Math.sin(this.time * 3));
+    }
+};
