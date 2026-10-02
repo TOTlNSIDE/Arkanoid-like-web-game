@@ -1,8 +1,8 @@
 (function () {
     const SOUNDS = {
-        platform: [200, .5, 'square', 1], brick: [500, .1, 'square', 1], hard: [300, .1, 'square', .1],
-        wall: [100, .5, 'triangle', 1], launch: [500, .1, 'triangle', 1], life: [300, .1, 'sawtooth', .1],
-        win: [500, .5, 'square', 2]
+        platform: [300, .07, 'square', 1.5], brick: [520, .07, 'square', 1.5], hard: [220, .1, 'square', 1.3],
+        wall: [180, .05, 'triangle', 1.3], launch: [400, .1, 'triangle', 1.8], life: [220, .4, 'sawtooth', .3],
+        win: [520, .5, 'square', 2.5]
     };
 
     ArkGame.Audio = {

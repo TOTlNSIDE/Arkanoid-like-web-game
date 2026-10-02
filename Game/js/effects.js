@@ -2,7 +2,7 @@
 ArkGame.Effects = class {
     constructor(render) {
         this.render = render; this.layer = render.fx;
-        this.parts = []; this.dyers = []; this.mag = 0;
+        this.particles = []; this.dyers = []; this.magnitude = 0;
     }
 
     spawn(x, y, color, life) {
@@ -45,6 +45,6 @@ ArkGame.Effects = class {
             if (dying.alpha <= 0) { dying.destroy(); this.dyers.splice(i, 1); }
         }
         this.magnitude = this.magnitude < .1 ? 0 : this.magnitude * Math.pow(.001, dt);
-        this.render.scene.position.set((Math.random() - .5) * this.magnitude * 2, (Math.random() - .5) * this.magnitude * 2);
+        this.render.stage.position.set((Math.random() - .5) * this.magnitude * 2, (Math.random() - .5) * this.magnitude * 2);
     }
 };

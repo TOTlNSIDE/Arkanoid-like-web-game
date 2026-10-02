@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     height: 100%;
-    background: content-box radial-gradient(crimson, skyblue);
+    background: radial-gradient(circle at 50% 40%, #11163a, #03040c 70%);
     overflow: hidden;
 }
 
@@ -13,7 +13,7 @@ body {
 
 #game canvas {
     display: block;
-    border: 2px dashed #0b5394;
-    border-radius: 6px;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+    border: 2px solid #2b3566;
+    border-radius: 4px;
+    box-shadow: 0 0 40px rgba(70, 110, 255, .35), 0 0 120px rgba(70, 110, 255, .15);
 }

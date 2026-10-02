@@ -1,18 +1,20 @@
 ArkGame.Levels = {
+    tutorial: {
+        theme: 0x101830, rows: [
+        // '.............', '..RRRRRRRRR..', '..YYYYYYYYY..', '..GGGGGGGGG..']
+           '......S......', '.............', '.............', '.............']
+    },
+
     data: [
         {
-            theme: 0xfffff, rows: ['RRRRRRRRRRRRR', 'OOOOOOOOOOOOO', 'YYYYYYYYYYYYYY', 'GGGGGGGGGGG', 'BBBBBBBBBBBBBBB',],
-            theme: 0xfffff, rows: ['CCCCCCCCCCCCC', 'PPPPPPPPPPPPP', 'WWWWWWWWWWWWWW', 'SSSSSSSSSSS', 'GGGGGGGGGGGGGGG',],
-            theme: 0xfffff, rows: ['RRRRRRRRRRRRR', 'PPPPPPPPPPPPP', 'YYYYYYYYYYYYYY', 'SSSSSSSSSSS', 'BBBBBBBBBBBBBBB',]
-        
-
-
-        
-        
-
-        
-
+            theme: 0x0b1440, rows: ['......G......', '.............', '.............', '.............', '.............', '.............']
         }
+        // {
+        //     theme: 0x230b40, rows: ['D...........D', 'SSSSSSSSSSSSS', '.BBBBBBBBBBB.', '..CCCCCCCCC..', '...GGGGGGG...', '....YYYYY....', '.....RRR.....']
+        // },
+        // {
+        //     theme: 0x0b3a2a, rows: ['D.D.D.D.D.D.D', 'PPPPPPPPPPPPP', '.S.S.S.S.S.S.', 'WCWCWCWCWCWCW', 'GGGGGGGGGGGGG', 'D...........D']
+        // }
     ]
 };
 
@@ -25,9 +27,9 @@ ArkGame.LoadLevel = class {
         }));
     }
     clear() {
-        this.layer.removeChildren().forEach(child => child.Destroy());
+        this.layer.removeChildren().forEach(child => child.destroy());
         this.bricks = [];
     }
-    remaining() { return this.bricks.filter(brick => !brick.dead && brick.kind !== 'G').length; }
+    remaining() { return this.bricks.filter(brick => !brick.dead && brick.kind !== 'X').length; }
     update(dt) { this.bricks.forEach(brick => brick.update(dt)); }
 };

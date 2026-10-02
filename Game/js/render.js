@@ -6,7 +6,7 @@ ArkGame.Render = class {
             antialias: true, resolution: window.devicePixelRatio || 1, autoDensity: true
         });
         host.appendChild(this.app.view);
-        ArkGame.Assets.init(this.app.render);
+        ArkGame.Assets.init(this.app.renderer);
 
         const layer = parent => parent.addChild(new PIXI.Container());
         this.stage = layer(this.app.stage);
@@ -20,15 +20,15 @@ ArkGame.Render = class {
         this.stars = [];
         for (let i = 0; i < 30; i++)
         {
-            const star = new PIXI.Sprite(ArkGame.Assets.Texture)
+            const star = new PIXI.Sprite(ArkGame.Assets.Texture.star)
             star.position.set(Config.FieldLeft + Math.random() * (Config.FieldRight - Config.FieldLeft), Config.FieldTop + Math.random() * (Config.CanvasHeight - Config.FieldTop));
-            star.alpha = .2 + Math.random() * .2;
-            star.speed = 10 + Math.random() * 20;
+            star.alpha = .15 + Math.random() * .3;
+            star.speed = 10 + Math.random() * 30;
             this.background.addChild(star);
             this.stars.push(star);
         }
         this.drawFrame();
-        this.setTheme(0x000435);
+        this.setTheme(0x0b1440);
     }
 
     setTheme(color) {
@@ -42,13 +42,13 @@ ArkGame.Render = class {
     drawFrame() {
         const Config = ArkGame.Config, frame = this.frame;
         const wall = (x, y, w, h) => {
-            frame.beginFill(0x000000).drawRect(x, y, w, h).endFill();
-            frame.beginFill(0x000000).drawRect(x + 2, y + 2, w - 4, h - 4).endFill();
-            frame.beginFill(0x000000, .5).drawRect(x + 2, y + 2, w - 4, 2).endFill();
+            frame.beginFill(0x4a5578).drawRect(x, y, w, h).endFill();
+            frame.beginFill(0x9aa6cc).drawRect(x + 2, y + 2, w - 4, h - 4).endFill();
+            frame.beginFill(0xdfe6ff, .6).drawRect(x + 2, y + 2, w - 4, 2).endFill();
         };
-        wall(Config.FieldLeft - 20, Config.FieldTop - 20, 20, Config.FieldTop);
-        wall(Config.FieldRight, Config.FieldTop - 20, 20, Config.CanvasHeight);
-        wall(Config.FieldLeft - 20, Config.FieldTop - 20, Config.FieldRight + 20, 12);
+        wall(Config.FieldLeft - 12, Config.FieldTop - 12, 12, Config.CanvasHeight);
+        wall(Config.FieldRight, Config.FieldTop - 12, 12, Config.CanvasHeight);
+        wall(Config.FieldLeft - 12, Config.FieldTop - 12, Config.FieldRight - Config.FieldLeft + 24, 12);
     }
 
     update(dt) {

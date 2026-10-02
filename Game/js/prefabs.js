@@ -13,8 +13,8 @@
             layer.addChild(this.sprite);
         }
         reset() { this.x = (Config.FieldLeft + Config.FieldRight) / 2; this.sprite.visible = true; this.sprite.scale.set(.1, 1); }
-        rect() { return { x: this.x - thix.width / 2, y: this.y - this.height / 2, width: this.width, height: this.height }; }
-        bump() { this.sprite.scale.y = .5; }
+        rect() { return { x: this.x - this.width / 2, y: this.y - this.height / 2, width: this.width, height: this.height }; }
+        bump() { this.sprite.scale.y = .6; }
         update(dt, input) {
             const press = (input.down('ArrowRight') ? 1 : 0) - (input.down('ArrowLeft') ? 1 : 0);
             if (press) this.moved = true;
@@ -26,7 +26,7 @@
     };
     ArkGame.Ball = class {
         constructor(layer) {
-            this.raduis = Config.BallRadius;
+            this.radius = Config.BallRadius;
             this.x = 0;
             this.y = 0;
             this.Vx = 0;
@@ -38,7 +38,7 @@
             layer.addChild(this.sprite);
         }
         reset() { this.speed = Config.BallSpeed; this.stuck = true; }
-        stick(platform) { this.stuck = true; this.Vx = this.Vy = 0; this.x = platform.x; this.y = platform.y - platform.height / 2 - this.raduis - 1; this.sync(); }
+        stick(platform) { this.stuck = true; this.Vx = this.Vy = 0; this.x = platform.x; this.y = platform.y - platform.height / 2 - this.radius - 1; this.sync(); }
         launch() {
             const angle = (Math.random() < .5 ? -1 : 1) * (.25 + Math.random() * .25);
             this.stuck = false;
@@ -56,7 +56,7 @@
             this.y = Config.FieldTop + 50 + row * Config.BrickHeight;
             this.centerX = this.x + this.width / 2;
             this.centerY = this.y + this.height / 2;
-            this.hp = kind === 'S' ? 2 : kind === 'G' ? Infinity : 1;
+            this.hp = kind === 'S' ? 2 : kind === 'X' ? Infinity : 1;
             this.time = 0;
             this.delay = row * .06 + col * .015;
             this.flash = 0;
@@ -72,7 +72,7 @@
             this.flash = 1;
             if (this.hp === Infinity) return false;
             if (--this.hp <= 0) { this.dead = true; return true; }
-            this.sprite.tint = 0x898989;
+            this.sprite.tint = 0xc8c8c8;
             return false;
         }
         update(dt) {
@@ -85,4 +85,4 @@
             this.sprite.scale.set(1 + .3 * this.flash);
         }
     };
-});
+})();

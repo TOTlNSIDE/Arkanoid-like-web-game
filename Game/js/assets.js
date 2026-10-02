@@ -3,11 +3,11 @@
 
     ArkGame.Assets = {
         Texture: {},
-        init(render) {
+        init(renderer) {
             const create = (name, draw) => {
                 const Graphic = new PIXI.Graphics();
                 draw(Graphic);
-                this.Texture[name] = render.generateTexture(Graphic, { resolution: 2 });
+                this.Texture[name] = renderer.generateTexture(Graphic, { resolution: 2 });
                 Graphic.destroy();
             };
             for (const color in Config.BrickColors) {
@@ -20,19 +20,19 @@
             }
 
             create('platform', Graphic => {
-                Graphic.beginFill(0x000000).drawRoundedRect(0, 0, Config.PlatformWidth, Config.PlatformHeight, 7).endFill();
-                Graphic.beginFill(0x000000).drawRoundedRect(0, 0, 20, Config.PlatformHeight, 7).drawRoundedRect(Config.PlatformWidth - 20, 0, 20, Config.PlatformHeight, 8).endFill();
-                Graphic.beginFill(0x000000, .5).drawRoundedRect(10, 5, Config.PlatformWidth - 20, 5, 5).endFill();
-                Graphic.beginFill(0x000000, .25).drawRoundedRect(10, Config.PlatformHeight - 10, Config.PlatformWidth - 20, 2, 1).endFill();
+                Graphic.beginFill(0xc0c8d8).drawRoundedRect(0, 0, Config.PlatformWidth, Config.PlatformHeight, 7).endFill();
+                Graphic.beginFill(0xe8352b).drawRoundedRect(0, 0, 18, Config.PlatformHeight, 7).drawRoundedRect(Config.PlatformWidth - 18, 0, 18, Config.PlatformHeight, 7).endFill();
+                Graphic.beginFill(0xffffff, .5).drawRoundedRect(8, 2, Config.PlatformWidth - 16, 3, 1.5).endFill();
+                Graphic.beginFill(0x000000, .25).drawRoundedRect(8, Config.PlatformHeight - 4, Config.PlatformWidth - 16, 2, 1).endFill();
             });
 
             create('ball', Graphic => {
-                Graphic.beginFill(0x000000).drawCircle(5, 5, 5).endFill();
-                Graphic.beginFill(0x000000, 0.5).drawCircle(6, 6, 6).endFill();
-                Graphic.beginFill(0x000000).drawCircle(4, 4, 4).endFill();
+                Graphic.beginFill(0xcfe0ff).drawCircle(6, 6, 6).endFill();
+                Graphic.beginFill(0x7f93c8, .6).drawCircle(7.5, 7.5, 4).endFill();
+                Graphic.beginFill(0xffffff).drawCircle(4.5, 4.5, 2.2).endFill();
             });
 
-            create('star', Graphic => Graphic.beginFill(0x000000).drawRect(0, 0, 5, 5).endFill());
+            create('star', Graphic => Graphic.beginFill(0xffffff).drawRect(0, 0, 3, 3).endFill());
         },
 
         override(name, url) { this.Texture[name] = PIXI.Texture.from(url); }
