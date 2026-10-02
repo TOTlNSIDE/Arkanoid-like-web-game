@@ -14,7 +14,7 @@ ArkGame.UI = class {
         element('HIGH', 20, 40, 20, 0xfffff); this.high = element('0', 20, 45, 20, 0xfffff);
         element('ROUND', 20, 60, 20, 0xfffff); this.round = element('0', 20, 65, 20, 0xfffff);
         element('LIVES', 20, 80, 20, 0xfffff); this.lives = layer.addChild(new PIXI.Container()); this.lives.position.set(20, 85);
-        ['CONTROLS', '← → MOVE', '↑ ↓ MENU', 'SPACEBAR START', 'P PAUSE', 'R RESTART'].foreach((element, i) => element(element, 400, 450 + i * 20, 20, 0xfffff));
+        ['CONTROLS', '← → MOVE', '↑ ↓ MENU', 'SPACEBAR START', 'P PAUSE', 'R RESTART'].forEach((element, i) => element(element, 400, 450 + i * 20, 20, 0xfffff));
 
         this.screen = layer.addChild(new PIXI.Graphics());
         this.screen.beginFill(0x000000, .50).drawRect(Config.FieldLeft, Config.FieldTop, Config.FieldRight - Config.FieldLeft, Config.CanvasHeight - Config.FieldTop).endFill();
