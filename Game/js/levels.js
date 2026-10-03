@@ -1,20 +1,8 @@
 ArkGame.Levels = {
-    tutorial: {
-        theme: 0x101830, rows: [
-        // '.............', '..RRRRRRRRR..', '..YYYYYYYYY..', '..GGGGGGGGG..']
-           '......S......', '.............', '.............', '.............']
-    },
-
-    data: [
-        {
-            theme: 0x0b1440, rows: ['......G......', '.............', '.............', '.............', '.............', '.............']
-        }
-        // {
-        //     theme: 0x230b40, rows: ['D...........D', 'SSSSSSSSSSSSS', '.BBBBBBBBBBB.', '..CCCCCCCCC..', '...GGGGGGG...', '....YYYYY....', '.....RRR.....']
-        // },
-        // {
-        //     theme: 0x0b3a2a, rows: ['D.D.D.D.D.D.D', 'PPPPPPPPPPPPP', '.S.S.S.S.S.S.', 'WCWCWCWCWCWCW', 'GGGGGGGGGGGGG', 'D...........D']
-        // }
+    tutorial: { theme: 0x101830, rows: ['.............', '..RRRRRRRRR..', '..YYYYYYYYY..', '..GGGGGGGGG..']},
+    data: [{ theme: 0x0b1440, rows: ['SSSSSSSSSSSSS', 'RRRRRRRRRRRRR', 'OOOOOOOOOOOOO', 'YYYYYYYYYYYYY', 'GGGGGGGGGGGGG', 'BBBBBBBBBBBBB']},
+            {theme: 0x230b40, rows: ['X...........X', 'SSSSSSSSSSSSS', '.BBBBBBBBBBB.', '..CCCCCCCCC..', '...GGGGGGG...', '....YYYYY....', '.....RRR.....']},
+            {theme: 0x0b3a2a, rows: ['X.X.X.X.X.X.X', 'PPPPPPPPPPPPP', '.S.S.S.S.S.S.', 'WCWCWCWCWCWCW', 'GGGGGGGGGGGGG', 'X...........X']}
     ]
 };
 
